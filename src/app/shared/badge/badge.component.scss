@@ -1,0 +1,30 @@
+.badge{
+  background-color: var(--third-color);
+  padding: 5px;
+  width: 100%;
+}
+
+.badge__flags{
+  display: flex;
+  justify-content: center;
+}
+
+.flag{
+  height: 32px;
+  width: 70px;
+  background-color: white;
+  border: none;
+  margin: 5px;
+  padding: 5px;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+
+.title-badge{
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}

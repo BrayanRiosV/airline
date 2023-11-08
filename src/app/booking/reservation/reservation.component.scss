@@ -1,0 +1,59 @@
+.reservation-title{
+  background-image: url(../../../assets/img/airplane.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+    h1{
+      font-weight: bold;
+      font-size: 2.2rem;
+      color: var(--second-color);
+      text-align: center;
+
+    }
+}
+
+form{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  .div-input {
+    grid-column: span 3;
+    grid-row: span 3;
+    margin: 5px;
+    background-color: var(--third-color);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    i{
+      font-size: 25px;
+      margin-left: 5px;
+    }
+    input{
+      margin-left: 10px;
+      color: black;
+      height: 49px;
+      width: 90%;
+      border: none;
+      background-color: var(--third-color);
+      &:hover, &:focus, &:active {
+        outline: none;
+      }
+    }
+  }
+  button{
+    grid-column: span 3;
+    grid-row: span 3;
+    border: none;
+    margin: 5px;
+    height: 50px;
+    background-color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: var(--third-color);
+    border-radius: 25px;
+  }
+}
