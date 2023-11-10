@@ -5,11 +5,13 @@ import { BookingRoutingModule } from './booking-routing.module';
 import { ReservationComponent } from './reservation/reservation.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JourneyComponent } from './journey/journey.component';
 
 
 @NgModule({
   declarations: [
-    ReservationComponent
+    ReservationComponent,
+    JourneyComponent
   ],
   imports: [
     CommonModule,

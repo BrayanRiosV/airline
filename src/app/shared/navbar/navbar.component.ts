@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BadgeComponent } from '../badge/badge.component';
+import { AppStore } from '../store/state-store';
+import { Store } from '@ngrx/store';
+import { IState } from '../interfaces/interface';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +12,15 @@ import { BadgeComponent } from '../badge/badge.component';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private modal: NgbModal) { }
+  appStore: AppStore = new AppStore();
+
+  constructor(
+    private modal: NgbModal,
+    private store: Store<IState>
+    ) { }
 
   ngOnInit(): void {
+    this.store.dispatch(this.appStore.getBadges());
   }
 
 
@@ -23,6 +32,10 @@ export class NavbarComponent implements OnInit {
   openBadge(){
     try {
       const modalRef = this.modal.open(BadgeComponent, { backdrop: 'static', size: 'lg', centered: true });
+      modalRef.result.then((result)=> {
+        this.store.dispatch(this.appStore.setBadge({ badge: result}));
+      });
+      modalRef.componentInstance.modalRef = modalRef;
   } catch (e) {
       console.log('Error: ' + e);
   }

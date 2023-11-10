@@ -1,5 +1,4 @@
 .reservation-title{
-  background-image: url(../../../assets/img/airplane.jpg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
@@ -20,7 +19,7 @@ form{
   display: grid;
   grid-template-columns: auto auto auto;
   .div-input {
-    grid-column: span 3;
+    grid-column: span 1;
     grid-row: span 3;
     margin: 5px;
     background-color: var(--third-color);
@@ -44,7 +43,20 @@ form{
       }
     }
   }
+
+  .form-button{
+    grid-column: span 3;
+    grid-row: span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+
+
   button{
+    width: 250px;
+
     grid-column: span 3;
     grid-row: span 3;
     border: none;
@@ -57,3 +69,5 @@ form{
     border-radius: 25px;
   }
 }
+
+

@@ -2,17 +2,17 @@
   <p class="title-badge">Por favor elija el tipo de cambio</p>
 
   <section class="badge__flags">
-      <button title="$" class="flag">
+      <button title="$" class="flag" (click)="changeBadge('USD')">
           <i class="fi fi-us"></i>
-          Dolar
+          USD
       </button>
-      <button title="$" class="flag">
+      <button title="$" class="flag" (click)="changeBadge('COP')">
         <i class="fi fi-co"></i>
         COP
     </button>
-    <button title="$" class="flag">
+    <button title="$" class="flag" (click)="changeBadge('EUR')">
       <i class="fi fi-eu"></i>
-      EU
+      EUR
   </button>
   </section>
 

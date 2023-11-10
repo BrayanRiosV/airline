@@ -1,36 +1,37 @@
-<app-navbar></app-navbar>
 <main>
 
   <section class="reservation-title">
     <h1>Descubre Tu Próximo Destino: Encuentra Vuelos al Instante</h1>
   </section>
 
-  <form class="form" [formGroup]="regularForm" action="">
+  <form class="form" novalidate [formGroup]="regularForm">
 
-    <div *ngIf="this.sameValue == true" class="error-message">
-      <p>Los campos origen y destino no deben tener la misma información</p>
-    </div>
-    <div *ngIf="origin?.invalid && (origin?.dirty || origin?.touched)">
-      <div *ngIf="origin?.errors?.['maxlength']" class="error-message">
-        <p>El campo origen no debe contener más de 3 caracteres.</p>
-      </div>
-    </div>
+
     <div class="div-input" for="origin">
+      <div *ngIf="this.sameValue == true" class="error-message">
+        <p>Los campos origen y destino no deben tener la misma información</p>
+      </div>
+      <div *ngIf="origin?.invalid && (origin?.dirty || origin?.touched)">
+        <div *ngIf="origin?.errors?.['maxlength']" class="error-message">
+          <p>El campo origen no debe contener más de 3 caracteres.</p>
+        </div>
+      </div>
       <i class="fa fa-plane"></i>
       <input type="text" id="origin" title="Origen" placeholder="Origen" formControlName="origin"
-      (change)="originDestinationValidator()">
+      (change)="originDestinationValidator();upperValidatorOrigin()">
     </div>
 
 
-    <div *ngIf="destination?.invalid && (destination?.dirty || destination?.touched)">
-      <div *ngIf="destination?.errors?.['maxlength']" class="error-message">
-        <p>El campo destino no debe contener más de 3 caracteres.</p>
-      </div>
-    </div>
+
     <div class="div-input" for="destination">
+      <div *ngIf="destination?.invalid && (destination?.dirty || destination?.touched)">
+        <div *ngIf="destination?.errors?.['maxlength']" class="error-message">
+          <p>El campo destino no debe contener más de 3 caracteres.</p>
+        </div>
+      </div>
       <i class="fa fa-plane"></i>
       <input type="text" id="destination" title="Destino" placeholder="Destino" formControlName="destination"
-      (change)="originDestinationValidator()">
+      (change)="originDestinationValidator();upperValidatorDestination()">
     </div>
 
     <div class="div-input" for="limit">
@@ -38,7 +39,9 @@
       <input type="number" id="limit" title="Limite vuelos" placeholder="Limite Vuelos" formControlName="limit">
     </div>
 
-    <button title="Buscar">Buscar</button>
+    <span class="form-button">
+      <button [hidden]="!regularForm.valid || sameValue" title="Buscar" (click)="getJourney()">Buscar</button>
+    </span>
 
   </form>
 
