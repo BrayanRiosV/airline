@@ -16,6 +16,8 @@ export class JourneyComponent implements OnInit {
 
   subscriptions = new Array<Subscription>();
 
+  badge: string = '';
+
   journeys: IJourney[] = [];
 
   constructor(
@@ -35,6 +37,7 @@ export class JourneyComponent implements OnInit {
           this.subscriptions.push(
             this.storeApp.select(this.appSelector.getBadge()).subscribe((badge) => {
               if (badge !== undefined) {
+                this.badge = badge.badge;
                 this.journeys = datos.resultJourney;
                 this.calculateBadge(badge.result);
               }

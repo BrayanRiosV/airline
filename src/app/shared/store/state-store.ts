@@ -95,9 +95,9 @@ export class AppSelector {
       (bookmark: IStateBookmark) => {
         if (bookmark && bookmark.badges && bookmark.badge && bookmark.badges.conversion_rates) {
           const result = bookmark.badges.conversion_rates[bookmark.badge];
-          return { result: result };
+          return { result: result, badge: bookmark.badge };
         } else {
-          return { result: null }; // Maneja el caso cuando las propiedades no están definidas
+          return { result: null, badge: bookmark.badge };
         }
       }
     );
